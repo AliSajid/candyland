@@ -290,7 +290,6 @@ jobs:
 
   semantic-release:
     runs-on: ubuntu-latest
-    if: jobs.macos-ci.outputs.result == 'success' && jobs.windows-ci.outputs.result == 'success' && jobs.ubuntu-ci.outputs.result == 'success'
     needs: [macos-ci, windows-ci, ubuntu-ci]
     steps:
       - uses: ./.github/workflows/release.yaml
