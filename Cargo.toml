@@ -1,0 +1,37 @@
+[package]
+name = "candyland"
+version = "1.0.0-alpha.1"
+edition = "2021"
+readme = "README.md"
+repository = "https://github.com/AliSajid/candyland"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "libcandyland"
+path = "src/libcandyland/lib.rs"
+crate-type = ["lib"]
+
+[[bin]]
+name = "candyland"
+path = "src/candyland/main.rs"
+
+[dependencies]
+
+[dev-dependencies]
+
+
+[profile.dev]
+opt-level = 0
+debug = true
+debug-assertions = true
+overflow-checks = true
+lto = false
+
+[profile.release]
+opt-level = 3
+debug = false
+debug-assertions = false
+strip = true
+overflow-checks = true
+lto = true
+codegen-units = 1
