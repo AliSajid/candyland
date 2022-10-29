@@ -108,7 +108,7 @@ jobs:
 
       - name: Set Result
         if: always()
-        run: echo "result=${{ success() }}" >> $GITHUB_OUTPUT
+        run: echo "result=${{ job.status }}" >> $GITHUB_OUTPUT
 
   ubuntu-ci:
     runs-on: ${{ matrix.os }}-latest
@@ -197,7 +197,7 @@ jobs:
 
       - name: Set Result
         if: always()
-        run: echo "result=${{ success() }}" >> $GITHUB_OUTPUT
+        run: echo "result=${{ job.status }}" >> $GITHUB_OUTPUT
 
   macos-ci:
     runs-on: ${{ matrix.os }}-latest
@@ -284,9 +284,9 @@ jobs:
           message: Failed
           isError: true
 
-      - name: Set Result
+      - name: Set Result Success
         if: always()
-        run: echo "result=${{ success() }}" >> $GITHUB_OUTPUT
+        run: echo "result=${{ job.status }}" >> $GITHUB_OUTPUT
 
   semantic-release:
     runs-on: ubuntu-latest
