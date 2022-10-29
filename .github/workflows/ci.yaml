@@ -289,10 +289,5 @@ jobs:
         run: echo "result=${{ job.status }}" >> $GITHUB_OUTPUT
 
   semantic-release:
-    runs-on: ubuntu-latest
     needs: [macos-ci, windows-ci, ubuntu-ci]
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: ./.github/workflows/release.yaml
+    uses: ./.github/workflows/release.yaml
