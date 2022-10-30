@@ -291,3 +291,4 @@ jobs:
   semantic-release:
     needs: [macos-ci, windows-ci, ubuntu-ci]
     uses: ./.github/workflows/release.yaml
+    secrets: inherit # pragma: allowlist secret
